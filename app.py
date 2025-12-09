@@ -1,6 +1,7 @@
 import os
 import streamlit as st
-from google import genai
+import google.generativeai as genai
+
 
 st.set_page_config(page_title="Smart Diet Planner", page_icon="🥗")
 
@@ -67,15 +68,15 @@ def get_client():
     if not api_key:
         st.error("GOOGLE_API_KEY not set.")
         st.stop()
-    return genai.Client(api_key=api_key)
+
+    genai.configure(api_key=api_key)
+    return genai
+
 
 
 def generate_diet_plan(prompt: str):
     client = get_client()
-    response = client.models.generate_content(
-        model="gemini-2.5-flash",
-        contents=prompt
-    )
+    response = client.GenerativeModel("gemini-2.5-flash").generate_content(prompt)
     return response.text
 
 
