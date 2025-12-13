@@ -83,18 +83,8 @@ def generate_diet_plan(prompt: str):
 def build_prompt(goal, age, height, weight, gender, diet_pref, activity, notes):
     template = """
 Generate a personalized, budget-friendly Indian diet plan with:
-
-1. Summary of health condition & goal
-2. Daily calorie requirement
-3. Full-day diet chart:
-   - Early Morning
-   - Breakfast
-   - Mid-Morning Snack
-   - Lunch
-   - Evening Snack
-   - Dinner
-4. 7-day rotation diet table
-5. Water intake & 8 lifestyle tips
+7-day rotation diet table
+Don't give anything else other than the table
 
 User Details:
 Goal: {goal}
