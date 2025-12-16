@@ -11,7 +11,11 @@ import matplotlib.pyplot as plt
 # =================================================
 # CONFIG
 # =================================================
-st.set_page_config(page_title="Smart Diet Planner", page_icon="🥗", layout="wide")
+st.set_page_config(
+    page_title="Smart Diet Planner",
+    page_icon="🥗",
+    layout="wide"
+)
 
 DATA_DIR = "data"
 USERS_FILE = f"{DATA_DIR}/users.json"
@@ -23,19 +27,13 @@ TODAY_DATE = str(datetime.date.today())
 TODAY_NAME = datetime.date.today().strftime("%A")
 
 # =================================================
-# SAFE JSON HELPERS
+# HELPERS
 # =================================================
 def load_json(path, default):
     if not os.path.exists(path):
         return default
-    try:
-        with open(path, "r") as f:
-            txt = f.read().strip()
-            if not txt:
-                return default
-            return json.loads(txt)
-    except:
-        return default
+    with open(path, "r") as f:
+        return json.load(f)
 
 def save_json(path, data):
     with open(path, "w") as f:
@@ -72,9 +70,12 @@ def get_client():
 
 def build_prompt(user):
     return f"""
-Return ONLY valid JSON.
-Top-level keys: Monday to Sunday.
-Each meal must have dish, standard_quantity, calories (number).
+STRICT RULES:
+- Return ONLY valid JSON
+- NO wrapper keys
+- Top-level keys must be weekdays (Monday–Sunday)
+- Each day must be a list
+- Each meal must have: dish, standard_quantity, calories (number)
 
 User:
 Goal: {user['goal']}
@@ -88,17 +89,20 @@ Activity: {user['activity']}
 
 def extract_json(text):
     text = text.replace("```json", "").replace("```", "")
-    m = re.search(r"\{[\s\S]*\}", text)
-    if not m:
+    match = re.search(r"\{[\s\S]*\}", text)
+    if not match:
         return None
     try:
-        return json.loads(m.group())
+        return json.loads(match.group())
     except:
         return None
 
-VALID_DAYS = ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"]
+VALID_DAYS = [
+    "Monday","Tuesday","Wednesday",
+    "Thursday","Friday","Saturday","Sunday"
+]
 
-def normalize_diet(raw):
+def normalize_diet_plan(raw):
     if len(raw) == 1 and isinstance(list(raw.values())[0], dict):
         raw = list(raw.values())[0]
 
@@ -107,26 +111,31 @@ def normalize_diet(raw):
         meals = raw.get(d)
         if not isinstance(meals, list):
             continue
+
         clean = []
         for m in meals:
-            dish = m.get("dish") or m.get("meal")
-            qty = m.get("standard_quantity") or "1 serving"
-            cal = m.get("calories") or m.get("kcal")
+            dish = m.get("dish") or m.get("meal") or m.get("item")
+            qty = m.get("standard_quantity") or m.get("quantity") or "1 serving"
+            cal = m.get("calories") or m.get("kcal") or m.get("cal")
             try:
                 cal = int(str(cal).replace("kcal", "").strip())
             except:
                 continue
+
             if dish and cal > 0:
                 clean.append({
                     "dish": dish,
                     "standard_quantity": qty,
                     "calories": cal
                 })
+
         if clean:
             final[d] = clean
+
     if not final:
-        st.error("Invalid AI diet output. Try again.")
+        st.error("AI diet invalid. Try again.")
         st.stop()
+
     return final
 
 def generate_diet(user):
@@ -135,16 +144,16 @@ def generate_diet(user):
         res = client.GenerativeModel("gemini-2.5-flash").generate_content(build_prompt(user))
         raw = extract_json(res.text)
         if raw:
-            return normalize_diet(raw)
+            return normalize_diet_plan(raw)
     st.error("Diet generation failed.")
     st.stop()
 
 # =================================================
 # SESSION
 # =================================================
-for k in ["user", "diet", "show_diet_form"]:
+for k in ["user", "diet"]:
     if k not in st.session_state:
-        st.session_state[k] = None if k != "show_diet_form" else False
+        st.session_state[k] = None
 
 # =================================================
 # AUTH UI
@@ -180,7 +189,8 @@ if not st.session_state.user:
 # HEADER
 # =================================================
 st.markdown(f"""
-<div style="padding:15px;border-radius:12px;background:black;color:white;
+<div style="padding:15px;border-radius:12px;
+background:black;color:white;
 display:flex;justify-content:space-between;">
 <h2>🥗 Smart Diet Planner</h2>
 <b>{st.session_state.user}</b>
@@ -191,45 +201,22 @@ display:flex;justify-content:space-between;">
 # SIDEBAR
 # =================================================
 with st.sidebar:
-    if st.button("➕ Generate New Diet"):
-        st.session_state.show_diet_form = True
+    st.markdown("### ⚙ Profile")
 
-# =================================================
-# DIET FORM
-# =================================================
-if st.session_state.show_diet_form:
-    st.markdown("## 🧾 Create New Diet Plan")
-
-    with st.form("diet_form"):
-        c1, c2 = st.columns(2)
-        with c1:
-            goal = st.selectbox("Goal", ["Lose", "Maintain", "Gain"])
-            age = st.number_input("Age", 10, 80, 21)
-            height = st.text_input("Height (cm)", "170")
-        with c2:
-            weight = st.number_input("Weight (kg)", 30.0, 200.0, 70.0)
-            gender = st.selectbox("Gender", ["Male", "Female"])
-            diet = st.selectbox("Diet Preference", ["Veg", "Non-Veg", "Both"])
-        activity = st.selectbox("Activity Level", ["Low", "Medium", "High"])
-
-        submit = st.form_submit_button("Generate Diet")
-
-    if submit:
+    if st.button("Generate New Diet"):
         user = {
-            "goal": goal, "age": age, "height": height,
-            "weight": weight, "gender": gender,
-            "diet": diet, "activity": activity
+            "goal": "Maintain",
+            "age": 21,
+            "height": "170",
+            "weight": 70,
+            "gender": "Male",
+            "diet": "Veg",
+            "activity": "Medium"
         }
-        with st.spinner("Generating diet..."):
-            st.session_state.diet = generate_diet(user)
-
+        st.session_state.diet = generate_diet(user)
         diets = load_json(DIET_FILE, {})
         diets[st.session_state.user] = st.session_state.diet
         save_json(DIET_FILE, diets)
-
-        st.session_state.show_diet_form = False
-        st.success("Diet generated successfully")
-        st.rerun()
 
 # =================================================
 # TRACKER
@@ -240,7 +227,13 @@ if st.session_state.diet:
     with col1:
         st.subheader("📅 Daily Diet View")
         day = st.selectbox("Select Day", list(st.session_state.diet.keys()))
+
         is_today = (day == TODAY_NAME)
+
+        if is_today:
+            st.success("🟢 Today — Track your meals")
+        else:
+            st.info("🔒 Past Day — Read only")
 
         planned = sum(m["calories"] for m in st.session_state.diet[day])
         consumed = 0
@@ -248,37 +241,58 @@ if st.session_state.diet:
         for i, m in enumerate(st.session_state.diet[day]):
             a,b,c = st.columns([4,2,2])
             with a:
-                st.write(f"{m['dish']} ({m['standard_quantity']})")
+                st.write(f"🍽️ {m['dish']} ({m['standard_quantity']})")
             with b:
                 if is_today:
-                    qty = st.number_input("Qty", 0.0, 5.0, 1.0, 0.5, key=f"{day}_q{i}")
+                    qty = st.number_input(
+                        "Quanty you ate", 0.0, 5.0, 1.0, 0.5,
+                        key=f"{day}_q{i}"
+                    )
                     eaten = st.checkbox("Eaten", key=f"{day}_e{i}")
                 else:
-                    qty, eaten = 1, False
+                    qty = 1
+                    eaten = False
             with c:
-                st.write(f"{m['calories']} kcal")
+                st.write(f"🔥 {m['calories']} kcal")
+
             if is_today and eaten:
                 consumed += m["calories"] * qty
 
     with col2:
         st.subheader("📊 Summary")
-        remaining = max(0, planned - consumed)
 
-        st.metric("Planned", planned)
-        st.metric("Consumed", int(consumed))
-        st.metric("Remaining", int(remaining))
+        if is_today:
+            remaining = max(0, planned - consumed)
 
-        if is_today and remaining <= 20:
-            st.success("🏅 Perfect Day Completed!")
+            st.metric("📋 Planned", planned)
+            st.metric("🔥 Consumed", int(consumed))
+            st.metric("⏳ Remaining", int(remaining))
 
-        if is_today and st.button("Save / Update Today"):
-            history = load_json(HISTORY_FILE, {})
-            history.setdefault(st.session_state.user, {})
-            history[st.session_state.user][TODAY_DATE] = {
-                "day": day, "planned": planned, "consumed": int(consumed)
-            }
-            save_json(HISTORY_FILE, history)
-            st.success("Saved")
+            if remaining <= 20:
+                st.success("🏅 Perfect Day Completed!")
+
+            if st.button("💾 Save / Update Today"):
+                history = load_json(HISTORY_FILE, {})
+                history.setdefault(st.session_state.user, {})
+                history[st.session_state.user][TODAY_DATE] = {
+                    "day": day,
+                    "planned": planned,
+                    "consumed": int(consumed)
+                }
+                save_json(HISTORY_FILE, history)
+                st.success("Saved")
+
+        else:
+            hist = load_json(HISTORY_FILE, {}).get(st.session_state.user, {})
+            record = hist.get(
+                next((d for d, v in hist.items() if v["day"] == day), None)
+            )
+
+            if record:
+                st.metric("📋 Planned", record["planned"])
+                st.metric("🔥 Consumed", record["consumed"])
+            else:
+                st.info("No data saved for this day")
 
 # =================================================
 # HISTORY
@@ -288,7 +302,8 @@ st.subheader("📜 History")
 
 hist = load_json(HISTORY_FILE, {}).get(st.session_state.user, {})
 if hist:
-    st.dataframe([{"date": d, **v} for d, v in hist.items()], use_container_width=True)
+    rows = [{"date": d, **v} for d, v in hist.items()]
+    st.dataframe(rows, use_container_width=True)
 else:
     st.info("No history yet")
 
@@ -298,14 +313,43 @@ else:
 st.markdown("---")
 st.subheader("📈 Weekly Calories Overview")
 
+hist = load_json(HISTORY_FILE, {}).get(st.session_state.user, {})
+
 if hist:
+    # Convert history dict → DataFrame
     df = pd.DataFrame.from_dict(hist, orient="index")
     df.index = pd.to_datetime(df.index)
-    df = df.sort_index().tail(7)
+    df = df.sort_index()
 
-    fig, ax = plt.subplots()
-    ax.plot(df.index.strftime("%a"), df["planned"], marker="o", label="Planned")
-    ax.plot(df.index.strftime("%a"), df["consumed"], marker="o", label="Consumed")
-    ax.legend()
-    ax.set_ylabel("Calories")
-    st.pyplot(fig)
+    # Last 7 days only
+    last_7 = df.tail(7)
+
+    if not last_7.empty:
+        fig, ax = plt.subplots(figsize=(8, 4))
+
+        ax.plot(
+            last_7.index.strftime("%a"),
+            last_7["planned"],
+            marker="o",
+            label="Planned",
+            linewidth=2
+        )
+
+        ax.plot(
+            last_7.index.strftime("%a"),
+            last_7["consumed"],
+            marker="o",
+            label="Consumed",
+            linewidth=2
+        )
+
+        ax.set_ylabel("Calories")
+        ax.set_title("Last 7 Days Calories")
+        ax.legend()
+        ax.grid(alpha=0.3)
+
+        st.pyplot(fig)
+    else:
+        st.info("Not enough data for weekly chart yet.")
+else:
+    st.info("Save daily data to see weekly progress.")
