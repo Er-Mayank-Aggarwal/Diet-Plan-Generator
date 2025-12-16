@@ -7,6 +7,8 @@ import streamlit as st
 import google.generativeai as genai
 import pandas as pd
 import matplotlib.pyplot as plt
+import pytz
+
 
 # =================================================
 # CONFIG
@@ -23,8 +25,12 @@ HISTORY_FILE = f"{DATA_DIR}/history.json"
 DIET_FILE = f"{DATA_DIR}/diet_plans.json"
 os.makedirs(DATA_DIR, exist_ok=True)
 
-TODAY_DATE = str(datetime.date.today())
-TODAY_NAME = datetime.date.today().strftime("%A")
+IST = pytz.timezone("Asia/Kolkata")
+now_ist = datetime.datetime.now(IST)
+
+TODAY_DATE = now_ist.date().isoformat()
+TODAY_NAME = now_ist.strftime("%A")
+
 
 # =================================================
 # HELPERS
