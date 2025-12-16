@@ -1,0 +1,569 @@
+{
+  "mayank1gdsc@gmail.com": {
+    "Monday": [
+      {
+        "dish": "Poha",
+        "standard_quantity": "2 cups cooked",
+        "calories": 400
+      },
+      {
+        "dish": "Curd",
+        "standard_quantity": "150g",
+        "calories": 90
+      },
+      {
+        "dish": "Banana",
+        "standard_quantity": "1 medium",
+        "calories": 100
+      },
+      {
+        "dish": "Toor Dal",
+        "standard_quantity": "1.5 cups cooked",
+        "calories": 250
+      },
+      {
+        "dish": "Brown Rice",
+        "standard_quantity": "2 cups cooked",
+        "calories": 400
+      },
+      {
+        "dish": "Mixed Vegetable Sabzi",
+        "standard_quantity": "1.5 cups",
+        "calories": 270
+      },
+      {
+        "dish": "Green Salad",
+        "standard_quantity": "1 serving",
+        "calories": 20
+      },
+      {
+        "dish": "Roasted Chana",
+        "standard_quantity": "50g",
+        "calories": 180
+      },
+      {
+        "dish": "Orange",
+        "standard_quantity": "1 medium",
+        "calories": 60
+      },
+      {
+        "dish": "Whole Wheat Roti",
+        "standard_quantity": "3 rotis",
+        "calories": 300
+      },
+      {
+        "dish": "Paneer Bhurji",
+        "standard_quantity": "2 cups",
+        "calories": 600
+      }
+    ],
+    "Tuesday": [
+      {
+        "dish": "Vegetable Upma",
+        "standard_quantity": "2 cups",
+        "calories": 450
+      },
+      {
+        "dish": "Filter Coffee with milk (no sugar)",
+        "standard_quantity": "1 cup",
+        "calories": 50
+      },
+      {
+        "dish": "Rajma",
+        "standard_quantity": "1.5 cups cooked",
+        "calories": 350
+      },
+      {
+        "dish": "Brown Rice",
+        "standard_quantity": "2 cups cooked",
+        "calories": 400
+      },
+      {
+        "dish": "Cucumber-Tomato Salad",
+        "standard_quantity": "1 large bowl",
+        "calories": 20
+      },
+      {
+        "dish": "Almonds",
+        "standard_quantity": "30g (approx. 20-25 pieces)",
+        "calories": 180
+      },
+      {
+        "dish": "Greek Yogurt",
+        "standard_quantity": "150g",
+        "calories": 100
+      },
+      {
+        "dish": "Mixed Berries",
+        "standard_quantity": "100g",
+        "calories": 50
+      },
+      {
+        "dish": "Moong Dal Cheela",
+        "standard_quantity": "3 large",
+        "calories": 600
+      },
+      {
+        "dish": "Mint Chutney",
+        "standard_quantity": "2 tbsp",
+        "calories": 30
+      },
+      {
+        "dish": "Curd",
+        "standard_quantity": "150g",
+        "calories": 90
+      },
+      {
+        "dish": "Saut\u00e9ed Mixed Vegetables",
+        "standard_quantity": "1 cup",
+        "calories": 100
+      }
+    ],
+    "Wednesday": [
+      {
+        "dish": "Idli",
+        "standard_quantity": "4 medium",
+        "calories": 240
+      },
+      {
+        "dish": "Sambar",
+        "standard_quantity": "1.5 cups",
+        "calories": 200
+      },
+      {
+        "dish": "Coconut Chutney",
+        "standard_quantity": "2 tbsp",
+        "calories": 100
+      },
+      {
+        "dish": "Whole Wheat Pasta",
+        "standard_quantity": "2 cups cooked",
+        "calories": 400
+      },
+      {
+        "dish": "Mixed Vegetables with Tomato Sauce",
+        "standard_quantity": "2 cups veggies + 1 cup sauce",
+        "calories": 300
+      },
+      {
+        "dish": "Grated Paneer",
+        "standard_quantity": "50g",
+        "calories": 150
+      },
+      {
+        "dish": "Banana",
+        "standard_quantity": "1 large",
+        "calories": 120
+      },
+      {
+        "dish": "Peanut Butter",
+        "standard_quantity": "2 tbsp",
+        "calories": 180
+      },
+      {
+        "dish": "Tofu Scramble",
+        "standard_quantity": "250g tofu",
+        "calories": 375
+      },
+      {
+        "dish": "Whole Wheat Toast",
+        "standard_quantity": "3 slices",
+        "calories": 300
+      },
+      {
+        "dish": "Avocado",
+        "standard_quantity": "1/2 medium",
+        "calories": 160
+      }
+    ],
+    "Thursday": [
+      {
+        "dish": "Oats Porridge",
+        "standard_quantity": "1 cup dry oats, cooked with plant milk",
+        "calories": 400
+      },
+      {
+        "dish": "Mixed Berries",
+        "standard_quantity": "100g",
+        "calories": 50
+      },
+      {
+        "dish": "Walnuts",
+        "standard_quantity": "30g",
+        "calories": 200
+      },
+      {
+        "dish": "Chole",
+        "standard_quantity": "1.5 cups cooked",
+        "calories": 350
+      },
+      {
+        "dish": "Whole Wheat Roti",
+        "standard_quantity": "3 rotis",
+        "calories": 300
+      },
+      {
+        "dish": "Cucumber Salad",
+        "standard_quantity": "1 bowl",
+        "calories": 20
+      },
+      {
+        "dish": "Paneer Bhurji",
+        "standard_quantity": "1 cup",
+        "calories": 300
+      },
+      {
+        "dish": "Greek Yogurt",
+        "standard_quantity": "150g",
+        "calories": 100
+      },
+      {
+        "dish": "Apple",
+        "standard_quantity": "1 medium",
+        "calories": 95
+      },
+      {
+        "dish": "Mixed Seeds",
+        "standard_quantity": "20g",
+        "calories": 110
+      },
+      {
+        "dish": "Vegetable Dalia",
+        "standard_quantity": "2 cups cooked",
+        "calories": 500
+      },
+      {
+        "dish": "Curd",
+        "standard_quantity": "150g",
+        "calories": 90
+      },
+      {
+        "dish": "Steamed Green Beans",
+        "standard_quantity": "1 cup",
+        "calories": 50
+      }
+    ],
+    "Friday": [
+      {
+        "dish": "Besan Cheela",
+        "standard_quantity": "3 large",
+        "calories": 600
+      },
+      {
+        "dish": "Mint Chutney",
+        "standard_quantity": "2 tbsp",
+        "calories": 30
+      },
+      {
+        "dish": "Curd",
+        "standard_quantity": "100g",
+        "calories": 60
+      },
+      {
+        "dish": "Vegetable Pulao",
+        "standard_quantity": "2 cups cooked",
+        "calories": 500
+      },
+      {
+        "dish": "Mixed Vegetable Raita",
+        "standard_quantity": "1.5 cups",
+        "calories": 200
+      },
+      {
+        "dish": "Green Salad",
+        "standard_quantity": "1 serving",
+        "calories": 20
+      },
+      {
+        "dish": "Orange",
+        "standard_quantity": "1 large",
+        "calories": 80
+      },
+      {
+        "dish": "Cashews",
+        "standard_quantity": "30g",
+        "calories": 170
+      },
+      {
+        "dish": "Mixed Vegetable Curry",
+        "standard_quantity": "1.5 cups",
+        "calories": 350
+      },
+      {
+        "dish": "Brown Rice",
+        "standard_quantity": "2 cups cooked",
+        "calories": 400
+      },
+      {
+        "dish": "Dal",
+        "standard_quantity": "1 cup cooked",
+        "calories": 180
+      }
+    ],
+    "Saturday": [
+      {
+        "dish": "Aloo Paratha",
+        "standard_quantity": "2 large",
+        "calories": 500
+      },
+      {
+        "dish": "Curd",
+        "standard_quantity": "150g",
+        "calories": 90
+      },
+      {
+        "dish": "Pickle",
+        "standard_quantity": "1 tbsp",
+        "calories": 30
+      },
+      {
+        "dish": "Palak Paneer",
+        "standard_quantity": "1.5 cups",
+        "calories": 450
+      },
+      {
+        "dish": "Whole Wheat Roti",
+        "standard_quantity": "3 rotis",
+        "calories": 300
+      },
+      {
+        "dish": "Green Salad",
+        "standard_quantity": "1 serving",
+        "calories": 20
+      },
+      {
+        "dish": "Roasted Makhana (Fox Nuts)",
+        "standard_quantity": "50g",
+        "calories": 170
+      },
+      {
+        "dish": "Dates",
+        "standard_quantity": "3-4 pieces",
+        "calories": 80
+      },
+      {
+        "dish": "Veggie Burger (whole wheat bun, large patty)",
+        "standard_quantity": "1 burger",
+        "calories": 450
+      },
+      {
+        "dish": "Sweet Potato Fries",
+        "standard_quantity": "medium serving",
+        "calories": 300
+      },
+      {
+        "dish": "Side Salad",
+        "standard_quantity": "1 serving",
+        "calories": 20
+      }
+    ],
+    "Sunday": [
+      {
+        "dish": "Puri",
+        "standard_quantity": "3 medium",
+        "calories": 360
+      },
+      {
+        "dish": "Aloo Bhaji",
+        "standard_quantity": "1.5 cups",
+        "calories": 250
+      },
+      {
+        "dish": "Dal Makhani",
+        "standard_quantity": "1.5 cups cooked",
+        "calories": 450
+      },
+      {
+        "dish": "Jeera Rice",
+        "standard_quantity": "2 cups cooked",
+        "calories": 400
+      },
+      {
+        "dish": "Laccha Paratha",
+        "standard_quantity": "1 paratha",
+        "calories": 200
+      },
+      {
+        "dish": "Green Salad",
+        "standard_quantity": "1 serving",
+        "calories": 20
+      },
+      {
+        "dish": "Green Smoothie (Spinach, Banana, Plant Milk, Protein Powder)",
+        "standard_quantity": "1.5 cups",
+        "calories": 250
+      },
+      {
+        "dish": "Mixed Vegetable Sabzi",
+        "standard_quantity": "1.5 cups",
+        "calories": 270
+      },
+      {
+        "dish": "Whole Wheat Roti",
+        "standard_quantity": "3 rotis",
+        "calories": 300
+      },
+      {
+        "dish": "Curd",
+        "standard_quantity": "150g",
+        "calories": 90
+      }
+    ]
+  },
+  "a": {
+    "Monday": [
+      {
+        "dish": "Oats Porridge with Berries and Almonds",
+        "standard_quantity": "1 cup cooked oats, 1/2 cup mixed berries, 10 almonds, 1 tbsp chia seeds, 1 cup milk",
+        "calories": 500
+      },
+      {
+        "dish": "Rajma Masala with Brown Rice and Cucumber Salad",
+        "standard_quantity": "1.5 cups Rajma (kidney bean curry), 1 cup cooked brown rice, 1 large cucumber salad",
+        "calories": 800
+      },
+      {
+        "dish": "Greek Yogurt with Honey and Apple",
+        "standard_quantity": "1 cup Greek yogurt, 1 tbsp honey, 1 medium apple",
+        "calories": 300
+      },
+      {
+        "dish": "Palak Paneer with Whole Wheat Rotis and Lentil Soup",
+        "standard_quantity": "1.5 cups Palak Paneer, 2 whole wheat rotis, 1 cup lentil soup",
+        "calories": 900
+      }
+    ],
+    "Tuesday": [
+      {
+        "dish": "Poha with Peanuts and Green Chutney",
+        "standard_quantity": "1.5 cups cooked poha, 1/4 cup peanuts, 2 tbsp green chutney",
+        "calories": 450
+      },
+      {
+        "dish": "Vegetable Biryani with Raita",
+        "standard_quantity": "2 cups vegetable biryani, 1 cup raita (yogurt dip)",
+        "calories": 950
+      },
+      {
+        "dish": "Mixed Nuts and Seeds",
+        "standard_quantity": "1/4 cup mix (almonds, cashews, pumpkin seeds, sunflower seeds)",
+        "calories": 250
+      },
+      {
+        "dish": "Dal Tadka with Brown Rice and Sauteed Greens",
+        "standard_quantity": "1.5 cups dal tadka, 1 cup cooked brown rice, 1 cup sauteed greens (spinach/kale)",
+        "calories": 850
+      }
+    ],
+    "Wednesday": [
+      {
+        "dish": "Scrambled Tofu with Whole Wheat Toast and Avocado",
+        "standard_quantity": "1 cup scrambled tofu, 2 slices whole wheat toast, 1/2 medium avocado",
+        "calories": 550
+      },
+      {
+        "dish": "Chana Masala with Whole Wheat Parathas and Curd",
+        "standard_quantity": "1.5 cups chana masala, 2 whole wheat parathas, 1/2 cup plain curd",
+        "calories": 900
+      },
+      {
+        "dish": "Banana and Peanut Butter",
+        "standard_quantity": "1 medium banana, 2 tbsp natural peanut butter",
+        "calories": 300
+      },
+      {
+        "dish": "Mixed Vegetable Curry with Quinoa and Salad",
+        "standard_quantity": "1.5 cups mixed vegetable curry, 1 cup cooked quinoa, 1 cup mixed green salad",
+        "calories": 800
+      }
+    ],
+    "Thursday": [
+      {
+        "dish": "Idli with Sambar and Coconut Chutney",
+        "standard_quantity": "4 medium idlis, 1.5 cups sambar, 2 tbsp coconut chutney",
+        "calories": 480
+      },
+      {
+        "dish": "Black Bean Burger on Whole Wheat Bun with Sweet Potato Fries",
+        "standard_quantity": "1 black bean burger, 1 whole wheat bun, 1 cup sweet potato fries",
+        "calories": 850
+      },
+      {
+        "dish": "Fruit Smoothie",
+        "standard_quantity": "1 cup mixed berries, 1 banana, 1 cup soy milk, 1 scoop plant-based protein powder",
+        "calories": 350
+      },
+      {
+        "dish": "Lentil & Vegetable Stew with Whole Wheat Bread",
+        "standard_quantity": "2 cups lentil and vegetable stew, 2 slices whole wheat bread",
+        "calories": 850
+      }
+    ],
+    "Friday": [
+      {
+        "dish": "Besan Cheela with Mint Chutney",
+        "standard_quantity": "2 medium besan cheelas (savory gram flour pancakes), 3 tbsp mint chutney",
+        "calories": 450
+      },
+      {
+        "dish": "Tofu Paneer Bhurji with Whole Wheat Rotis and Dal",
+        "standard_quantity": "1.5 cups tofu paneer bhurji, 2 whole wheat rotis, 1 cup dal (lentil curry)",
+        "calories": 900
+      },
+      {
+        "dish": "Roasted Chickpeas and Orange",
+        "standard_quantity": "1 cup roasted chickpeas, 1 large orange",
+        "calories": 280
+      },
+      {
+        "dish": "Vegetable Kofta Curry with Brown Rice and Raita",
+        "standard_quantity": "1.5 cups vegetable kofta curry, 1 cup cooked brown rice, 1 cup raita",
+        "calories": 900
+      }
+    ],
+    "Saturday": [
+      {
+        "dish": "Aloo Paratha with Curd and Pickle",
+        "standard_quantity": "2 medium aloo parathas (potato-stuffed flatbread), 1 cup plain curd, 1 tbsp pickle",
+        "calories": 600
+      },
+      {
+        "dish": "Veggie & Hummus Wrap with Side Salad",
+        "standard_quantity": "2 large veggie and hummus wraps, 1 cup mixed green salad",
+        "calories": 800
+      },
+      {
+        "dish": "Protein Bar and Fruit",
+        "standard_quantity": "1 plant-based protein bar (20g protein), 1 medium pear",
+        "calories": 300
+      },
+      {
+        "dish": "Veggie Pizza (Whole Wheat Crust) with Paneer",
+        "standard_quantity": "2-3 slices (medium size) whole wheat veggie pizza with paneer",
+        "calories": 900
+      }
+    ],
+    "Sunday": [
+      {
+        "dish": "Masala Dosa with Sambar and Chutney",
+        "standard_quantity": "2 medium masala dosas, 1.5 cups sambar, 2 tbsp coconut chutney",
+        "calories": 550
+      },
+      {
+        "dish": "Tofu Scramble with Roasted Potatoes and Green Beans",
+        "standard_quantity": "1.5 cups tofu scramble, 1.5 cups roasted potatoes, 1 cup steamed green beans",
+        "calories": 900
+      },
+      {
+        "dish": "Handful of Dry Fruits and Nuts",
+        "standard_quantity": "1/4 cup mix (raisins, dates, walnuts, cashews)",
+        "calories": 250
+      },
+      {
+        "dish": "Vegetable Lasagna with Garlic Bread",
+        "standard_quantity": "1 serving vegetable lasagna, 1 slice garlic bread",
+        "calories": 900
+      }
+    ]
+  }
+}

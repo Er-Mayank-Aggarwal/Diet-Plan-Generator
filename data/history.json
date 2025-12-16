@@ -1,0 +1,39 @@
+{
+  "mayank1gdsc@gmail.com": {
+    "2025-12-17": {
+      "day": "Wednesday",
+      "planned": 2525,
+      "consumed": 2405
+    },
+    "2025-12-16": {
+      "day": "Tuesday",
+      "planned": 1800,
+      "consumed": 1730
+    },
+    "2025-12-15": {
+      "day": "Monday",
+      "planned": 1000,
+      "consumed": 1030
+    },
+    "2025-12-14": {
+      "day": "Sunday",
+      "planned": 1700,
+      "consumed": 1650
+    },
+    "2025-12-13": {
+      "day": "Saturday",
+      "planned": 2000,
+      "consumed": 1900
+    },
+    "2025-12-12": {
+      "day": "Friday",
+      "planned": 1800,
+      "consumed": 1750
+    },
+    "2025-12-11": {
+      "day": "Thursday",
+      "planned": 1600,
+      "consumed": 1500
+    }
+  }
+}
